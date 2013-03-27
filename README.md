@@ -9,7 +9,12 @@ The task list will start small, and then will build in a fashion that conveys so
 **Installation**
 - All operations assume the Eclipse STS IDE (3.2+); Ensure extensions described here are in place: 
   http://www.grails.org/STS+Integration
-- File > Import ... > Git > Repositories from GitHub > (search for rpnmde) > Finish
+- Setup basic Eclipse Git settings (Preferences > Git).  Most notably, setup a Default respository folder
+- File > Import... > Git > Repositories from GitHub > (search for rpnmde) > (click repository) > Finish
+- Takes a few seconds to pull down respository from GitHub
+- File > Import... > Grails > Grails Project > (browse to your Git repository) > Finish
+- Takes a few seconds to setup project synch Git respository with Eclipe
+- Right click on project > Team... > Share Project... > Git > (it should detect your Git details> Finish
 
 
 
