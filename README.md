@@ -14,7 +14,8 @@ The task list will start small, and then will build in a fashion that conveys so
 
 
 **Requirements**
-27March2013
+
+-27March2013-
 - Create a package in src/java named com.rpnmde.service
 - Create a class (named following Oracle's conventions http://www.oracle.com/technetwork/java/codeconv-138413.html)
 - Division operations should have a maximum of 3 decimal places
