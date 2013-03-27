@@ -7,8 +7,10 @@ Notation': http://en.wikipedia.org/wiki/Reverse_Polish_notation
 The task list will start small, and then will build in a fashion that conveys software development principles.
 
 **Installation**
-- All operations assume the Eclipse STS IDE (3.2+)
+- All operations assume the Eclipse STS IDE (3.2+); Ensure extensions described here are in place: 
+  http://www.grails.org/STS+Integration
 - File > Import ... > Git > Repositories from GitHub > (search for rpnmde) > Finish
+
 
 
 **Requirements***
@@ -18,6 +20,8 @@ The task list will start small, and then will build in a fashion that conveys so
 - Division operations should have a maximum of 3 decimal places
 - Develop a JUnit unit test with methods illustrating the functionality of the RPN calculator for addition, subtraction,
   multiplication, and division.    
+
+
   
 **Instructor Notes**
 Test Driven Development
