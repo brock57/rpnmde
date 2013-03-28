@@ -1,4 +1,5 @@
-***Overview***
+**Overview**
+
 The RPN calculator project serves as an exploration playground wherein a developer can learn a bit about the software 
 development process in a manner that can be catered towards the developer and the development environment (company 
 norms), etc.  The core algorithmic work of this project is nothing more than what is defined with 'Reverse Polish 
@@ -30,11 +31,11 @@ The task list will start small, and then will build in a fashion that conveys so
 
   
 **Instructor Notes**
-Test Driven Development
-Build File - create a script
-Threading: Java and Groovy
-UI: command line, swing, simple browser, ajax
-Log commands / operations: Log4J, File, DB (learn to create tables - by hand and code, JDBC, Spring JDBC, Groovy SQL)
-Build out web UI: perform operations, view transactions from DB
-Batch Operations: read from file (flat, Excel, CSV, XML), read from server (HTTP, raw sockets)
-Quartz job: process asynch
+- Test Driven Development
+- Build File - create a script
+- Threading: Java and Groovy
+- UI: command line, swing, simple browser, ajax
+- Log commands / operations: Log4J, File, DB (learn to create tables - by hand and code, JDBC, Spring JDBC, Groovy SQL)
+- Build out web UI: perform operations, view transactions from DB
+- Batch Operations: read from file (flat, Excel, CSV, XML), read from server (HTTP, raw sockets)
+- Quartz job: process asynch
