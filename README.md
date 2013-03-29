@@ -39,3 +39,4 @@ The task list will start small, and then will build in a fashion that conveys so
 - Build out web UI: perform operations, view transactions from DB
 - Batch Operations: read from file (flat, Excel, CSV, XML), read from server (HTTP, raw sockets)
 - Quartz job: process asynch
+- Endianness, Base64 encoding
