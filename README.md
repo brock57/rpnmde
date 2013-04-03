@@ -40,3 +40,4 @@ The task list will start small, and then will build in a fashion that conveys so
 - Batch Operations: read from file (flat, Excel, CSV, XML), read from server (HTTP, raw sockets)
 - Quartz job: process asynch
 - Endianness, Base64 encoding
+- Setup: Create project in GitHub, Import from Eclipse, create-app from command line, import into Eclipse, add .gitignore to empty dirs
