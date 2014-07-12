@@ -1,83 +1,60 @@
 package com.rpnmde.service;
 
 import java.util.*;
-import java.util.Scanner;
-import java.text.*;
 import java.lang.Math;
-import java.io.InputStream;
-import java.text.DecimalFormat;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import com.rpnmde.service.ParseInput;
 
 public class PostfixCalc {
 	
 	public static void main(String args[]) {
 			
 }
-
-	public Double calculate(String input) {
-
-		Stack<Double> stack = new Stack<Double>();
+	
+	public static interface Operation {
+		public BigDecimal operate(BigDecimal val1, BigDecimal val2);
+	}
+	
+	public static Map<String, Operation> operations = new HashMap<String, Operation>();
+	
+	static {
+		operations.put("+", new Operation(){public BigDecimal operate(BigDecimal val1, BigDecimal val2) {
+			return val1.add(val2); }});
+		operations.put("-", new Operation(){public BigDecimal operate(BigDecimal val1, BigDecimal val2) {
+			return val2.subtract(val1); }});
+		operations.put("*", new Operation(){public BigDecimal operate(BigDecimal val1, BigDecimal val2) {
+			return val1.multiply(val2); }});
+		operations.put("/", new Operation(){public BigDecimal operate(BigDecimal val1, BigDecimal val2) {
+			return val2.divide(val1, 3, RoundingMode.HALF_UP); }});
+	}
+	
+	public BigDecimal calculate(String input) {
+		
+		Stack<BigDecimal> stack = new Stack<BigDecimal>();
 		boolean exit = false;
 		
-		String delims = "[,]";
-		String[] tokens = input.split(delims);
+		ParseInput parser = new ParseInput();
+		
+		String[] tokens = parser.parseInput(input);
 		
 		for (int i = 0; i < tokens.length; i++) {
 			String var = String.valueOf(tokens[i].trim());
 			
-			if (var.equals("+")) {
-				stack.push(stack.pop() + stack.pop());
-			} else if (var.equals("-")) {
-				Double denominator = stack.pop();
-				stack.push(stack.pop() - denominator);
-			} else if (var.equals("*")) {
-				stack.push(stack.pop() * stack.pop());
-			} else if (var.equals("/")) {
-				Double denominator = stack.pop();
-				DecimalFormat df = new DecimalFormat();
-				Double div = Double.valueOf(df.format(stack.pop() / denominator));
-				stack.push(div);
+			if (operations.containsKey(var)) {
+				stack.push(operations.get(var).operate(stack.pop(), stack.pop()));
 			} else {
-				stack.push(Double.parseDouble(var));
+				stack.push(new BigDecimal(var));
 			}
 			
 		}
 		return stack.pop();
 		
-		/*
-		while (!exit) {
-			String input = new String();
-			System.out.println("Evaluating: " + input);
-			if (confirmNumber(input)) {
-				stack.push(Double.parseDouble(input));
-			} else if (confirmOperator(input) && stack.size() > 1) {
-				if (input.equals("+")) {
-					stack.push(((Double) stack.pop()).doubleValue() + ((Double) stack.pop()).doubleValue());
-					System.out.println(stack);
-				} else if (input.equals("-")) {
-					double s1 = ((Double) stack.pop()).doubleValue();
-					double s2 = ((Double) stack.pop()).doubleValue();
-					stack.push(s2 - s1);
-					System.out.println(stack);
-				} else if (input.equals("*")) {
-					stack.push(((Double) stack.pop()).doubleValue() * ((Double) stack.pop()).doubleValue());
-					System.out.println(stack);
-				} else if (input.equals("/")) {
-					double d1 = ((Double) stack.pop()).doubleValue();
-					double d2 = ((Double) stack.pop()).doubleValue();
-					stack.push(Math.round((d2/d1)*1e3)/1e3);
-					System.out.println(stack);
-				}
-			}
-		}	
-		*/
-		
-		
 	}
-	
 	
 	public static Boolean confirmNumber(String input) {
 		try {
-			double num = Double.parseDouble(input.trim());
+			//BigDecimal num = BigDecimal.parseBigDecimal(input.trim());
 			return true;
 		}catch (Exception e){
 			return false;
